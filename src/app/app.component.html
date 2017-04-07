@@ -1,0 +1,68 @@
+<h1>{{title}}</h1>
+  
+  <!--<my-hero-detail [hero]="selectedHero"></my-hero-detail>-->
+<nav>
+  <a [myHighlight]="color" routerLink="/home" routerLinkActive="active" class="navbar">Home</a>
+  <a [myHighlight]="'orange'" routerLink="/about" class="navbar">About</a>
+</nav>
+<md-input-container>
+   <input type="text" mdInput [formControl]="myControl" [mdAutocomplete]="auto">
+</md-input-container>
+
+<md-autocomplete #auto="mdAutocomplete" >
+   <md-option *ngFor="let option of filteredOptions  | async" [value]="option.name" >
+      {{ option.name }}
+   </md-option>
+</md-autocomplete>
+<app-hero-search-component></app-hero-search-component>
+<router-outlet></router-outlet>
+<div class="app-content">
+<md-card>
+  <button md-button>Flat</button>
+  <button md-raised-button (click)="onClick">Action</button>
+  <button md-raised-button (click)="onClick" color="primary">Action</button>
+  <button md-raised-button (click)="onClick" color="warn">Action</button>
+</md-card>
+<md-card>
+  <md-checkbox name="componentPrerty" [(ngModel)]="componentPrope" color="accent">Checkbox label</md-checkbox>
+  <md-checkbox name="componentPrperty" [(ngModel)]="componentPropety" color="warn">Checkbox label</md-checkbox>
+  <md-checkbox name="componentProerty" [(ngModel)]="componentProperty" color="primary">Checkbox label</md-checkbox>
+</md-card>
+<md-card>
+  <md-radio-group name="componeroperty" [(ngModel)]="compooperty" [align]="'start'">
+      <md-radio-button value="1">Radio label</md-radio-button>
+      <md-radio-button value="2">Radio label</md-radio-button>
+      <md-radio-button value="3" disabled>Radio label</md-radio-button>
+  </md-radio-group>
+</md-card>
+<md-card>
+  <md-slider name="cooperty" [(ngModel)]="componeoperty" min="1" max="100" step="1"></md-slider>{{componeoperty}}
+</md-card>
+<md-card>
+  <md-input-container [floatPlaceholder]="auto" dividerColor="primary" align="start">
+      <input mdInput name="componety" [(ngModel)]="comoperty" type="text" required
+             placeholder="">
+      <span mdPrefix></span>
+      <span mdSuffix></span>
+      <md-hint align="start">
+          Hint text
+      </md-hint>
+  </md-input-container>
+</md-card>
+<md-card>
+  <md-menu #menu="mdMenu">
+    <button md-menu-item>
+      <md-icon> dialpad </md-icon>
+      <span> Redial </span>
+    </button>
+    <button md-menu-item disabled>
+      <md-icon> voicemail </md-icon>
+      <span> Check voicemail </span>
+    </button>
+    <button md-menu-item>
+      <md-icon> notifications_off </md-icon>
+      <span> Disable alerts </span>
+    </button>
+</md-menu>
+</md-card>
+</div>
